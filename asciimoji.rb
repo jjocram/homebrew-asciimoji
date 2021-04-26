@@ -1,8 +1,8 @@
 class Asciimoji < Formula
   desc "Program to search asciimoji saved in a local, editable file"
   homepage "https://gitlab.com/jjocram/asciimoji"
-  url "https://gitlab.com/jjocram/asciimoji/-/archive/1.1.0/asciimoji-1.1.0.tar.gz"
-  sha256 "616255fb7f8519010e7b71a51f13218b2cb6516542b7461ed3a82d096a408968"
+  url "https://gitlab.com/jjocram/asciimoji/-/archive/v1.2.0/asciimoji-v1.2.0.tar.gz"
+  sha256 "3f69ebecc4497760c6c120e9041a95512e5476a69efedf36192534b50b9e87db"
   license "GPL-3.0-or-later"
 
   depends_on "rust" => :build
