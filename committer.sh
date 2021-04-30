@@ -5,6 +5,15 @@ read version_number
 
 echo "Retrieving new sha256 from the new url"
 new_url="https://gitlab.com/jjocram/asciimoji/-/archive/v$version_number/asciimoji-v$version_number.tar.gz"
+
+status_code_gitlab=$(curl --write-out "%{http_code}\n" "https://samples.openweathermap.org/data/2.5/weather?q=London,uk&appid=b6907d289e10d714a6e88b30761fae22" --output output.txt --silent)
+echo "${status_code_gitlab}"
+if [ $status_code_gitlab -ne 200 ]
+then
+    echo "Release not found at ${new_url}"
+    exit 1
+fi
+
 new_sha=$(curl ${new_url} | sha256sum | /usr/bin/grep -oh "[a-zA-Z0-9_.-]*") # Saves only the hash, sometimes sha256sum returned an extra " -"
 
 echo "Update asciimoji.rb file"
